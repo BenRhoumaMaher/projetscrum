@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import AddAccountModal from './AddAccountModal';
+import { useNavigate } from 'react-router-dom';
 
 const AdminDashboard = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-
+    const navigate = useNavigate();
     const handleAddAccountClick = () => {
         setIsModalOpen(true);
     };
@@ -14,6 +15,12 @@ const AdminDashboard = () => {
 
     return (
         <div className="text-center">
+            <button
+                className="btn btn-secondary me-2"
+                onClick={() => navigate('/admin/accounts')}
+            >
+                Gestion des comptes
+            </button>
             <button
                 className="btn btn-primary"
                 onClick={handleAddAccountClick}
