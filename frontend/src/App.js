@@ -1,17 +1,21 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import AdminHome from './pages/AdminHome';
-import AdminAccountsPage from './pages/AdminAccountsPage';
+import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import AdminHome from './pages/AdminHome'
+import AdminAccountsPage from './pages/AdminAccountsPage'
+import SignupPage from './pages/SignupPage';
+import ClientPage from './pages/ClientPage';
 
-function App() {
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/admin" element={<AdminHome />} />
-                <Route path="/admin/accounts" element={<AdminAccountsPage />} />
-            </Routes>
-        </BrowserRouter>
-    );
+function App () {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path='/signup' element={<SignupPage />} />
+        <Route path='/client' element={<ClientPage />} />
+        <Route path='/admin' element={<AdminHome />} />
+        <Route path='/admin/accounts' element={<AdminAccountsPage />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
