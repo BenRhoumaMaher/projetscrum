@@ -11,94 +11,111 @@ const ModalContent = ({ formData, handleChange, handleSubmit, onClose }) => {
                     </div>
                     <div className="modal-body">
                         <form onSubmit={handleSubmit}>
-                            <div className="mb-3">
-                                <label className="form-label">Nom d’utilisateur</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    name="username"
-                                    value={formData.username}
-                                    onChange={handleChange}
-                                    required
-                                />
+                            {/* Première ligne */}
+                            <div className="row mb-3">
+                                <div className="col-md-6">
+                                    <label className="form-label">Nom d’utilisateur</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        name="username"
+                                        value={formData.username}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+                                <div className="col-md-6">
+                                    <label className="form-label">Nom</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        name="nom"
+                                        value={formData.nom}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
                             </div>
-                            <div className="mb-3">
-                                <label className="form-label">Nom</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    name="nom"
-                                    value={formData.nom}
-                                    onChange={handleChange}
-                                    required
-                                />
+
+                            {/* Deuxième ligne */}
+                            <div className="row mb-3">
+                                <div className="col-md-6">
+                                    <label className="form-label">Prénom</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        name="prenom"
+                                        value={formData.prenom}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+                                <div className="col-md-6">
+                                    <label className="form-label">Mot de passe</label>
+                                    <input
+                                        type="password"
+                                        className="form-control"
+                                        name="password"
+                                        value={formData.password}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
                             </div>
-                            <div className="mb-3">
-                                <label className="form-label">Prénom</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    name="prenom"
-                                    value={formData.prenom}
-                                    onChange={handleChange}
-                                    required
-                                />
+
+                            {/* Troisième ligne */}
+                            <div className="row mb-3">
+                                <div className="col-md-6">
+                                    <label className="form-label">Adresse</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        name="adresse"
+                                        value={formData.adresse}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+                                <div className="col-md-6">
+                                    <label className="form-label">Ville</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        name="ville"
+                                        value={formData.ville}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
                             </div>
-                            <div className="mb-3">
-                                <label className="form-label">Mot de passe</label>
-                                <input
-                                    type="password"
-                                    className="form-control"
-                                    name="password"
-                                    value={formData.password}
-                                    onChange={handleChange}
-                                    required
-                                />
+
+                            {/* Quatrième ligne */}
+                            <div className="row mb-3">
+                                <div className="col-md-6">
+                                    <label className="form-label">Téléphone</label>
+                                    <input
+                                        type="tel"
+                                        className="form-control"
+                                        name="tel"
+                                        value={formData.tel}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+                                <div className="col-md-6">
+                                    <label className="form-label">Email</label>
+                                    <input
+                                        type="email"
+                                        className="form-control"
+                                        name="mail"
+                                        value={formData.mail}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
                             </div>
-                            <div className="mb-3">
-                                <label className="form-label">Adresse</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    name="adresse"
-                                    value={formData.adresse}
-                                    onChange={handleChange}
-                                    required
-                                />
-                            </div>
-                            <div className="mb-3">
-                                <label className="form-label">Ville</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    name="ville"
-                                    value={formData.ville}
-                                    onChange={handleChange}
-                                    required
-                                />
-                            </div>
-                            <div className="mb-3">
-                                <label className="form-label">Téléphone</label>
-                                <input
-                                    type="tel"
-                                    className="form-control"
-                                    name="tel"
-                                    value={formData.tel}
-                                    onChange={handleChange}
-                                    required
-                                />
-                            </div>
-                            <div className="mb-3">
-                                <label className="form-label">Email</label>
-                                <input
-                                    type="email"
-                                    className="form-control"
-                                    name="mail"
-                                    value={formData.mail}
-                                    onChange={handleChange}
-                                    required
-                                />
-                            </div>
+
+                            {/* Boutons */}
                             <div className="d-flex justify-content-between">
                                 <button type="submit" className="btn btn-success">Enregistrer</button>
                                 <button type="button" className="btn btn-secondary" onClick={onClose}>
