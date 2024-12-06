@@ -1,33 +1,32 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import '../SignupPage.css';
 
 const SignupPage = () => {
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
-        username: '',
+        nom: '',
+        prenom: '',
+        email: '',
+        tel: '',
         password: '',
         confirmPassword: '',
-        email: '',
-        fullName: '',
-        phone: '',
-        address: '',
-        city: '',
     });
 
     const [errors, setErrors] = useState({});
+    const [acceptedTerms, setAcceptedTerms] = useState(false);
 
     const validateForm = () => {
         const newErrors = {};
-        if (!formData.username) newErrors.username = 'Nom d’utilisateur est requis.';
+        if (!formData.nom) newErrors.nom = 'Nom est requis.';
+        if (!formData.prenom) newErrors.prenom = 'Prénom est requis.';
+        if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Email invalide.';
+        if (!formData.tel || !/^\d{10}$/.test(formData.tel)) newErrors.tel = 'Numéro de téléphone invalide.';
         if (!formData.password) newErrors.password = 'Mot de passe est requis.';
         if (formData.password !== formData.confirmPassword) newErrors.confirmPassword = 'Les mots de passe ne correspondent pas.';
-        if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Email invalide.';
-        if (!formData.fullName) newErrors.fullName = 'Nom complet est requis.';
-        if (!formData.phone || !/^\d{10}$/.test(formData.phone)) newErrors.phone = 'Numéro de téléphone invalide.';
-        if (!formData.address) newErrors.address = 'Adresse est requise.';
-        if (!formData.city) newErrors.city = 'Ville est requise.';
+        if (!acceptedTerms) newErrors.terms = 'Vous devez accepter les termes et conditions.';
 
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
@@ -56,54 +55,45 @@ const SignupPage = () => {
     };
 
     return (
-        <div className="container mt-5">
-            <h2 className="mb-4 text-center">Inscription</h2>
-            <form onSubmit={handleSubmit} className="p-4 border rounded">
+        <div className="signup-container">
+            <form onSubmit={handleSubmit} className="signup-form">
+                <h2 className="text-center mb-4">Sign up</h2>
+                <p className="text-start">
+                    Vous avez déjà un compte ?{' '}
+                    <a href="/login" className="login-link">
+                        Login
+                    </a>
+                </p>
                 <div className="row mb-3">
-                    {/* Nom d'utilisateur */}
                     <div className="col-md-6">
-                        <label className="form-label">Nom d’utilisateur</label>
                         <input
                             type="text"
-                            name="username"
-                            className={`form-control ${errors.username ? 'is-invalid' : ''}`}
-                            value={formData.username}
+                            placeholder='Nom'
+                            name="nom"
+                            className={`form-control ${errors.nom ? 'is-invalid' : ''}`}
+                            value={formData.nom}
                             onChange={handleChange}
                         />
-                        {errors.username && <div className="invalid-feedback">{errors.username}</div>}
+                        {errors.nom && <div className="invalid-feedback">{errors.nom}</div>}
                     </div>
-                    {/* Mot de passe */}
                     <div className="col-md-6">
-                        <label className="form-label">Mot de passe</label>
                         <input
-                            type="password"
-                            name="password"
-                            className={`form-control ${errors.password ? 'is-invalid' : ''}`}
-                            value={formData.password}
+                            type="text"
+                            placeholder='Prenom'
+                            name="prenom"
+                            className={`form-control ${errors.prenom ? 'is-invalid' : ''}`}
+                            value={formData.prenom}
                             onChange={handleChange}
                         />
-                        {errors.password && <div className="invalid-feedback">{errors.password}</div>}
+                        {errors.prenom && <div className="invalid-feedback">{errors.prenom}</div>}
                     </div>
                 </div>
 
                 <div className="row mb-3">
-                    {/* Confirmation de mot de passe */}
                     <div className="col-md-6">
-                        <label className="form-label">Confirmer le mot de passe</label>
-                        <input
-                            type="password"
-                            name="confirmPassword"
-                            className={`form-control ${errors.confirmPassword ? 'is-invalid' : ''}`}
-                            value={formData.confirmPassword}
-                            onChange={handleChange}
-                        />
-                        {errors.confirmPassword && <div className="invalid-feedback">{errors.confirmPassword}</div>}
-                    </div>
-                    {/* Email */}
-                    <div className="col-md-6">
-                        <label className="form-label">Email</label>
                         <input
                             type="email"
+                            placeholder='Email'
                             name="email"
                             className={`form-control ${errors.email ? 'is-invalid' : ''}`}
                             value={formData.email}
@@ -111,65 +101,64 @@ const SignupPage = () => {
                         />
                         {errors.email && <div className="invalid-feedback">{errors.email}</div>}
                     </div>
-                </div>
-
-                <div className="row mb-3">
-                    {/* Nom complet */}
                     <div className="col-md-6">
-                        <label className="form-label">Nom complet</label>
                         <input
                             type="text"
-                            name="fullName"
-                            className={`form-control ${errors.fullName ? 'is-invalid' : ''}`}
-                            value={formData.fullName}
+                            placeholder='Telehone'
+                            name="tel"
+                            className={`form-control ${errors.tel ? 'is-invalid' : ''}`}
+                            value={formData.tel}
                             onChange={handleChange}
                         />
-                        {errors.fullName && <div className="invalid-feedback">{errors.fullName}</div>}
-                    </div>
-                    {/* Téléphone */}
-                    <div className="col-md-6">
-                        <label className="form-label">Téléphone</label>
-                        <input
-                            type="text"
-                            name="phone"
-                            className={`form-control ${errors.phone ? 'is-invalid' : ''}`}
-                            value={formData.phone}
-                            onChange={handleChange}
-                        />
-                        {errors.phone && <div className="invalid-feedback">{errors.phone}</div>}
+                        {errors.tel && <div className="invalid-feedback">{errors.tel}</div>}
                     </div>
                 </div>
 
                 <div className="row mb-3">
-                    {/* Adresse */}
                     <div className="col-md-6">
-                        <label className="form-label">Adresse</label>
                         <input
-                            type="text"
-                            name="address"
-                            className={`form-control ${errors.address ? 'is-invalid' : ''}`}
-                            value={formData.address}
+                            type="password"
+                            placeholder='Mot de passe'
+                            name="password"
+                            className={`form-control ${errors.password ? 'is-invalid' : ''}`}
+                            value={formData.password}
                             onChange={handleChange}
                         />
-                        {errors.address && <div className="invalid-feedback">{errors.address}</div>}
+                        {errors.password && <div className="invalid-feedback">{errors.password}</div>}
                     </div>
-                    {/* Ville */}
                     <div className="col-md-6">
-                        <label className="form-label">Ville</label>
                         <input
-                            type="text"
-                            name="city"
-                            className={`form-control ${errors.city ? 'is-invalid' : ''}`}
-                            value={formData.city}
+                            type="password"
+                            name="confirmPassword"
+                            placeholder='Confirmer le mot de passe'
+                            className={`form-control ${errors.confirmPassword ? 'is-invalid' : ''}`}
+                            value={formData.confirmPassword}
                             onChange={handleChange}
                         />
-                        {errors.city && <div className="invalid-feedback">{errors.city}</div>}
+                        {errors.confirmPassword && <div className="invalid-feedback">{errors.confirmPassword}</div>}
                     </div>
                 </div>
 
-                <button type="submit" className="btn btn-primary w-25">
-                    S’inscrire
-                </button>
+                <div className="mb-3">
+                    <div className="form-check">
+                        <input
+                            className={`form-check-input ${errors.terms ? 'is-invalid' : ''}`}
+                            type="checkbox"
+                            id="terms"
+                            onChange={(e) => setAcceptedTerms(e.target.checked)}
+                        />
+                        <label className="form-check-label" htmlFor="terms">
+                            J’accepte les termes et conditions du site web et la politique de confidentialité
+                        </label>
+                        {errors.terms && <div className="invalid-feedback d-block">{errors.terms}</div>}
+                    </div>
+                </div>
+
+                <div className="text-center">
+                    <button type="submit" className="btn btn-primary w-50">
+                        Créer un compte
+                    </button>
+                </div>
             </form>
         </div>
     );

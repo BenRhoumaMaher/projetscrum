@@ -1,0 +1,113 @@
+/* General page layout */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, #e96443, #904e95); /* Gradient background */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Login form container */
+.login-container {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+/* Login title */
+.login-title {
+    font-size: 24px;
+    color: #1e1e1e;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Signup text */
+.signup-text {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.signup-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signup-link:hover {
+    text-decoration: underline;
+}
+
+/* Form input fields */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ffa500;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: #ff8000;
+    box-shadow: 0 0 5px rgba(255, 128, 0, 0.6);
+}
+
+/* Stay connected checkbox */
+.stay-connected {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 20px;
+    font-size: 12px;
+}
+
+/* Submit button */
+.submit-button {
+    width: 100%;
+    background-color: #ffa500;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #ff8000;
+}
+
+/* Forgot password */
+.forgot-password {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #007bff;
+}
+
+.forgot-password a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+/* Error message */
+.error-text {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
