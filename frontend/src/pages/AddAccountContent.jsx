@@ -11,7 +11,6 @@ const ModalContent = ({ formData, handleChange, handleSubmit, onClose }) => {
                     </div>
                     <div className="modal-body">
                         <form onSubmit={handleSubmit}>
-                            {/* Première ligne */}
                             <div className="row mb-3">
                                 <div className="col-md-6">
                                     <label className="form-label">Nom d’utilisateur</label>
@@ -37,7 +36,6 @@ const ModalContent = ({ formData, handleChange, handleSubmit, onClose }) => {
                                 </div>
                             </div>
 
-                            {/* Deuxième ligne */}
                             <div className="row mb-3">
                                 <div className="col-md-6">
                                     <label className="form-label">Prénom</label>
@@ -63,7 +61,6 @@ const ModalContent = ({ formData, handleChange, handleSubmit, onClose }) => {
                                 </div>
                             </div>
 
-                            {/* Troisième ligne */}
                             <div className="row mb-3">
                                 <div className="col-md-6">
                                     <label className="form-label">Adresse</label>
@@ -89,7 +86,6 @@ const ModalContent = ({ formData, handleChange, handleSubmit, onClose }) => {
                                 </div>
                             </div>
 
-                            {/* Quatrième ligne */}
                             <div className="row mb-3">
                                 <div className="col-md-6">
                                     <label className="form-label">Téléphone</label>
@@ -115,7 +111,6 @@ const ModalContent = ({ formData, handleChange, handleSubmit, onClose }) => {
                                 </div>
                             </div>
 
-                            {/* Boutons */}
                             <div className="d-flex justify-content-between">
                                 <button type="submit" className="btn btn-success">Enregistrer</button>
                                 <button type="button" className="btn btn-secondary" onClick={onClose}>

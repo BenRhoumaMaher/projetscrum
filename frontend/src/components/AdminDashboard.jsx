@@ -28,6 +28,12 @@ const AdminDashboard = () => {
                 Ajouter un compte
             </button>
             {isModalOpen && <AddAccountModal onClose={closeModal} />}
+            <button 
+                onClick={() => navigate('/admin/add-product')}
+                className="btn btn-success ms-2"
+            >
+                Ajouter un produit
+            </button>
         </div>
     );
 };
