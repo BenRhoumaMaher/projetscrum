@@ -8,6 +8,7 @@ import AdminLoginPage from './pages/AdminLoginPage'
 import AddProductPage from './pages/AddProductPage'
 import ProductList from './components/ProductListComponent'
 import EditProductPage from './pages/EditProductPage'
+import CataloguePage from './pages/CataloguePage'
 
 function App () {
   return (
@@ -21,6 +22,7 @@ function App () {
         <Route path='/admin/accounts' element={<AdminAccountsPage />} />
         <Route path='/products' element={<ProductList />} />
         <Route path='/edit-product' element={<EditProductPage />} />
+        <Route path="/" element={<CataloguePage />} />
       </Routes>
     </BrowserRouter>
   )
