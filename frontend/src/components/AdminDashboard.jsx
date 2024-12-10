@@ -22,6 +22,12 @@ const AdminDashboard = () => {
                 Gestion des comptes
             </button>
             <button
+                className="btn btn-danger me-2"
+                onClick={() => navigate('/products')}
+            >
+                Gestion des produits
+            </button>
+            <button
                 className="btn btn-primary"
                 onClick={handleAddAccountClick}
             >

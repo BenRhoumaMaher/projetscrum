@@ -6,6 +6,8 @@ import SignupPage from './pages/SignupPage'
 import ClientPage from './pages/ClientPage'
 import AdminLoginPage from './pages/AdminLoginPage'
 import AddProductPage from './pages/AddProductPage'
+import ProductList from './components/ProductListComponent'
+import EditProductPage from './pages/EditProductPage'
 
 function App () {
   return (
@@ -15,8 +17,10 @@ function App () {
         <Route path='/signup' element={<SignupPage />} />
         <Route path='/client' element={<ClientPage />} />
         <Route path='/admin' element={<AdminHome />} />
-        <Route path="/admin/add-product" element={<AddProductPage />} />
+        <Route path='/admin/add-product' element={<AddProductPage />} />
         <Route path='/admin/accounts' element={<AdminAccountsPage />} />
+        <Route path='/products' element={<ProductList />} />
+        <Route path='/edit-product' element={<EditProductPage />} />
       </Routes>
     </BrowserRouter>
   )
