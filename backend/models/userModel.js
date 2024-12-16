@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 
 const userSchema = new mongoose.Schema({
     username: {
-        typr: String,
+        type: String,
 
     }, 
     name: {
@@ -46,7 +46,7 @@ userSchema.methods.comparePassword = async function (password) {
 }
 
 
-
+//Cette partie dit à MongoDB que la structure d’un utilisateur doit suivre cette règle.
 const User = mongoose.model('Users', userSchema);
 
 export default User;

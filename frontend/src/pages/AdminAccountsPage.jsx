@@ -10,8 +10,10 @@ const AdminAccountsPage = () => {
 
     const fetchAccounts = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/accounts');
+            const response = await axios.get('http://localhost:5000/api/users');
             setAccounts(response.data);
+            console.log(response.data);
+            
         } catch (error) {
             console.error('Erreur lors de la récupération des comptes :', error);
         }
