@@ -1,3 +1,4 @@
+
 import express from 'express'; // Framework Express
 import dotenv from 'dotenv'; // Gestion des variables d'environnement
 import mongoose from 'mongoose'; // Connexion à MongoDB
@@ -6,8 +7,10 @@ import userRoutes from './routes/routes.js'; // Import des routes utilisateurs
 // Charger les variables d'environnement
 dotenv.config();
 
+
 // Initialiser l'application Express
 const app = express();
+
 
 // Middleware pour parser les données JSON dans les requêtes
 app.use(express.json());
@@ -33,4 +36,5 @@ app.get('/', (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
+
 });
