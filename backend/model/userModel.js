@@ -42,4 +42,4 @@ userSchema.methods.matchPassword = async function (enterPassword) {
 
 const User = mongoose.model('users', userSchema)
 
-export default mongoose.model("User", userSchema);
+export default User;

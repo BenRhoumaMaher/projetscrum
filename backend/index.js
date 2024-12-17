@@ -15,11 +15,7 @@ const app = express();
 // Middleware pour parser les données JSON dans les requêtes
 app.use(express.json());
 
-// Connexion à MongoDB
 
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.log('Failed to connect to MongoDB:', err));
 
 // Appeler la fonction de connexion à MongoDB
 connectDB();
@@ -31,6 +27,11 @@ app.use('/api/users', userRoutes);
 app.get('/', (req, res) => {
   res.send('Server is running!');
 });
+// Middleware pour les routes non trouvées
+app.use((req, res, next) => {
+  res.status(404).json({ message: "Route non trouvée" });
+});
+
 
 // Lancer le serveur
 const PORT = process.env.PORT || 3000;
