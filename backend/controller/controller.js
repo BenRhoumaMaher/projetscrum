@@ -21,17 +21,9 @@ const createUser = async (req, res) => {
     }
 };
 
-// Supprimer un utilisateur
-const deleteUser = async (req, res) => {
-    try {
-        await User.findByIdAndDelete(req.params.id);
-        res.json({ message: "User deleted" });
-    } catch (error) {
-        res.status(500).json({ message: "Erreur lors de la suppression de l'utilisateur", error });
-    }
-};
 
-export { createUser, deleteUser };
+
+export { createUser };
 
   
 
