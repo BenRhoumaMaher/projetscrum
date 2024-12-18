@@ -31,6 +31,7 @@ app.get('/', (req, res) => {
 // Middleware pour les routes non trouvées
 app.use((req, res, next) => {
   res.status(404).json({ message: "Route non trouvée" });
+  next();
 });
 
 

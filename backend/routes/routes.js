@@ -25,15 +25,15 @@ router.delete("/:id", async (req, res) => {
   }
   
   try {
-    const user = await User.findById(userId);
+    const user = await User.findByIdAndDelete(userId);
     if (user) {
-      await user.remove();
+      // await user.deleteOne();
       res.json({ message: "Utilisateur supprimé avec succès !" });
     } else {
       res.status(404).json({ message: "Utilisateur non trouvé" });
     }
   } catch (error) {
-    res.status(500).json({ message: "Erreur lors de la suppression", error });
+    res.status(400).json({ message: "Erreur lors de la suppression", error });
   }
 });
 
