@@ -1,4 +1,5 @@
 
+
 import express from 'express'; // Framework Express
 import dotenv from 'dotenv'; // Gestion des variables d'environnement
 import mongoose from 'mongoose'; // Connexion à MongoDB
@@ -39,3 +40,4 @@ app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 
 }); 
+

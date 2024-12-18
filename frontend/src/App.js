@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import AdminHome from './pages/AdminHome'
+import AdminAccountsPage from './pages/AdminAccountsPage'
+import SignupPage from './pages/SignupPage'
+import ClientPage from './pages/ClientPage'
+import AdminLoginPage from './pages/AdminLoginPage'
+import AddProductPage from './pages/AddProductPage'
+import ProductList from './components/ProductListComponent'
+import EditProductPage from './pages/EditProductPage'
+import CataloguePage from './pages/CataloguePage'
 
-function App() {
+function App () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route path='/admin/login' element={<AdminLoginPage />} />
+        <Route path='/signup' element={<SignupPage />} />
+        <Route path='/client' element={<ClientPage />} />
+        <Route path='/admin' element={<AdminHome />} />
+        <Route path='/admin/add-product' element={<AddProductPage />} />
+        <Route path='/admin/accounts' element={<AdminAccountsPage />} />
+        <Route path='/products' element={<ProductList />} />
+        <Route path='/edit-product' element={<EditProductPage />} />
+        <Route path="/" element={<CataloguePage />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
