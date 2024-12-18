@@ -4,7 +4,8 @@ import express from 'express'; // Framework Express
 import dotenv from 'dotenv'; // Gestion des variables d'environnement
 import mongoose from 'mongoose'; // Connexion à MongoDB
 import connectDB from './BD/bd.js'; 
-import userRoutes from './routes/routes.js'; // Import des routes utilisateurs
+import userRoutes from './routes/routes.js';
+import cors from "cors" // Import des routes utilisateurs
 //Charger les variables d'environnement
 dotenv.config();
 
@@ -16,7 +17,7 @@ const app = express();
 // Middleware pour parser les données JSON dans les requêtes
 app.use(express.json());
 
-
+app.use(cors());
 
 // Appeler la fonction de connexion à MongoDB
 connectDB();
@@ -36,7 +37,7 @@ app.use((req, res, next) => {
 
 
 // Lancer le serveur
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 

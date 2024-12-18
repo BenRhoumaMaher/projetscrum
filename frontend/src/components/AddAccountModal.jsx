@@ -25,7 +25,7 @@ const AddAccountModal = ({ onClose }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8000/api/admins', formData);
+            const response = await axios.post('http://localhost:5000/api/users/add', formData);
             console.log('Réponse API :', response.data);
             alert('Compte administrateur créé avec succès !');
             onClose();

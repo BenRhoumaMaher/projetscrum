@@ -21,9 +21,11 @@ const AdminAccountsPage = () => {
 
     const deleteAccount = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/api/accounts/${id}`);
+            await axios.delete(`http://localhost:5000/api/users/accounts/${id}`);
             alert('Compte supprimé avec succès.');
-            setAccounts((prevAccounts) => prevAccounts.filter((account) => account.id !== id));
+            setAccounts((prevAccounts) => prevAccounts.filter((account) => account._id !== id));
+            console.log(`Compte avec l'ID ${id} supprimé`);
+            
         } catch (error) {
             console.error('Erreur lors de la suppression du compte :', error);
             alert('Échec de la suppression. Veuillez réessayer.');
@@ -44,14 +46,14 @@ const AdminAccountsPage = () => {
                 </thead>
                 <tbody>
                     {accounts.map((account) => (
-                        <tr key={account.id}>
-                            <td>{account.id}</td>
-                            <td>{account.username}</td>
+                        <tr key={account._id}>
+                            <td>{account._id}</td>
+                            <td>{account.name}</td>
                             <td>{account.email}</td>
                             <td>
                                 <button
                                     className="btn btn-danger btn-sm"
-                                    onClick={() => deleteAccount(account.id)}
+                                    onClick={() => deleteAccount(account._id)}
                                 >
                                     Supprimer
                                 </button>

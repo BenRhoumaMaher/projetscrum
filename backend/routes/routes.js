@@ -4,6 +4,18 @@ import User from "../model/userModel.js";
 
 const router = express.Router();
 
+
+router.get("/", async (req, res) => {
+    try {
+        const users = await User.find();
+        console.log(users);
+        
+        res.status(200).json(users);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+})
+
 // Ajouter un utilisateur
 router.post("/add", async (req, res) => {
     try {
@@ -16,7 +28,7 @@ router.post("/add", async (req, res) => {
     }
 });
 // Supprimer un utilisateur
-router.delete("/:id", async (req, res) => {
+router.delete("/accounts/:id", async (req, res) => {
   const userId = req.params.id;
 
   // Vérifier si l'ID est valide
