@@ -10,6 +10,7 @@ import ProductList from './components/ProductListComponent'
 import EditProductPage from './pages/EditProductPage'
 import CataloguePage from './pages/CataloguePage'
 import ClientLoginPage from './pages/ClientLoginPage'
+import PanierPage from './pages/PanierPage'
 
 function App () {
   return (
@@ -25,6 +26,7 @@ function App () {
         <Route path='/edit-product' element={<EditProductPage />} />
         <Route path="/" element={<CataloguePage />} />
         <Route path="/client/login" element={<ClientLoginPage />} />
+        <Route path="/panier" element={<PanierPage />} />
       </Routes>
     </BrowserRouter>
   )
