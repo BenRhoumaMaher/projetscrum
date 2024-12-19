@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 
 const userSchema = mongoose.Schema({
-<<<<<<< HEAD
+
     username:{
         type:String,
         require:true,
@@ -14,28 +14,17 @@ const userSchema = mongoose.Schema({
     tel:{
         type:String,
         require:true,
-=======
-    name:{
-        type:String,
-        require:true,
-    },
-    email:{
-        type:String,
-        require:true,
-        unique:true
-        
->>>>>>> backend/feature/user-story-9
     },
     address:{
         type:String,
         require:true,
     },
-<<<<<<< HEAD
+
     email:{
         type:String, 
         require:true,
         unique:true
-=======
+    },
     phone:{
         type:String,
         require:true,
@@ -45,17 +34,8 @@ const userSchema = mongoose.Schema({
         require:true,
     },
     
+
     
-    password:{
-        type:String,
-        require:true,
-    },
-    role:{
-        type:String,
-        enum: ['guest', 'user', 'admin'],
-        default:'guest'
->>>>>>> backend/feature/user-story-9
-    },
     password:{
         type:String,
         require:true,
