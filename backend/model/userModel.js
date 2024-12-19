@@ -10,6 +10,30 @@ const userSchema = mongoose.Schema({
         type:String,
         require:true,
         unique:true
+        
+    },
+    address:{
+        type:String,
+        require:true,
+    },
+    phone:{
+        type:String,
+        require:true,
+    },
+    city:{
+        type:String,
+        require:true,
+    },
+    
+    
+    password:{
+        type:String,
+        require:true,
+    },
+    role:{
+        type:String,
+        enum: ['guest', 'user', 'admin'],
+        default:'guest'
     },
     password:{
         type:String,
