@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import ClientDashboard from '../components/ClientDashboard'; // Assurez-vous du bon chemin d'import
+import ClientDashboard from '../components/ClientDashboard';
 
 const ClientPage = () => {
     const navigate = useNavigate();
