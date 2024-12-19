@@ -1,13 +1,19 @@
-import React from 'react';
-import AdminDashboard from '../components/AdminDashboard';
+import React from 'react'
+import AdminDashboard from '../components/AdminDashboard'
+import { useNavigate } from 'react-router-dom'
 
 const AdminHome = () => {
-    return (
-        <div className="container mt-5">
-            <h1 className="text-center mb-4">Accueil Administrateur</h1>
-            <AdminDashboard />
-        </div>
-    );
-};
+  const navigate = useNavigate()
+  const handleLogout = () => {
+    localStorage.removeItem('adminToken')
+    alert('Vous êtes déconnecté.')
+    navigate('/admin/login')
+  }
+  return (
+    <div className='container mt-5'>
+      <AdminDashboard onLogout={handleLogout} />
+    </div>
+  )
+}
 
-export default AdminHome;
+export default AdminHome

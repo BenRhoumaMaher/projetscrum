@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import AddAccountModal from './AddAccountModal'
 import { useNavigate } from 'react-router-dom'
+import { FaSignOutAlt } from 'react-icons/fa'
 
-const AdminDashboard = () => {
+const AdminDashboard = ({ onLogout }) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const navigate = useNavigate()
   const handleAddAccountClick = () => {
@@ -15,6 +16,22 @@ const AdminDashboard = () => {
 
   return (
     <div className='text-center'>
+      <div
+        style={{
+          position: 'absolute',
+          top: '20px',
+          right: '20px',
+          zIndex: 10
+        }}
+      >
+        <FaSignOutAlt
+          size={24}
+          color='gray'
+          style={{ cursor: 'pointer' }}
+          title='Se déconnecter'
+          onClick={onLogout}
+        />
+      </div>
       <button
         className='btn btn-secondary me-2'
         onClick={() => navigate('/admin/accounts')}
