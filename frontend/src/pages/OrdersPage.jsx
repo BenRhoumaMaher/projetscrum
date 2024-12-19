@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const OrdersPage = () => {
   const [orders, setOrders] = useState([])
   const [errorMessage, setErrorMessage] = useState('')
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -42,6 +44,10 @@ const OrdersPage = () => {
     }
   }
 
+  const handleViewFacture = order => {
+    navigate('/admin/facture', { state: { facture: order } })
+  }
+
   return (
     <div className='container mt-5'>
       <h2 className='text-center mb-4'>Gestion des Commandes</h2>
@@ -75,12 +81,20 @@ const OrdersPage = () => {
                       Valider
                     </button>
                     <button
-                      className='btn btn-danger btn-sm'
+                      className='btn btn-danger btn-sm me-2'
                       onClick={() => handleAction(order._id, 'cancel')}
                     >
                       Annuler
                     </button>
                   </>
+                )}
+                {order.status === 'validée' && (
+                  <button
+                    className='btn btn-primary btn-sm'
+                    onClick={() => handleViewFacture(order)}
+                  >
+                    Facture
+                  </button>
                 )}
               </td>
             </tr>
