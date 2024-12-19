@@ -29,7 +29,7 @@ const ClientLoginPage = () => {
       })
 
       if (response.ok) {
-        const data = await response.json()
+        localStorage.setItem('isAuthenticated', 'true');
         alert('Connexion réussie!')
         navigate('/')
       } else {
