@@ -5,7 +5,6 @@ const CataloguePage = () => {
     const [loading, setLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState('');
 
-    // Fetch products from the backend
     useEffect(() => {
         const fetchProducts = async () => {
             try {

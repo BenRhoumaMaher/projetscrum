@@ -9,6 +9,7 @@ import AddProductPage from './pages/AddProductPage'
 import ProductList from './components/ProductListComponent'
 import EditProductPage from './pages/EditProductPage'
 import CataloguePage from './pages/CataloguePage'
+import ClientLoginPage from './pages/ClientLoginPage'
 
 function App () {
   return (
@@ -23,6 +24,7 @@ function App () {
         <Route path='/products' element={<ProductList />} />
         <Route path='/edit-product' element={<EditProductPage />} />
         <Route path="/" element={<CataloguePage />} />
+        <Route path="/client/login" element={<ClientLoginPage />} />
       </Routes>
     </BrowserRouter>
   )
