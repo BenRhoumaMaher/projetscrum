@@ -9,6 +9,13 @@ import AddProductPage from './pages/AddProductPage'
 import ProductList from './components/ProductListComponent'
 import EditProductPage from './pages/EditProductPage'
 import CataloguePage from './pages/CataloguePage'
+import ClientLoginPage from './pages/ClientLoginPage'
+import PanierPage from './pages/PanierPage'
+import BankingInterfacePage from './pages/BankingInterfacePage'
+import FacturePage from './pages/facture'
+import OrdersPage from './pages/OrdersPage'
+import FactureAdminPage from './pages/FactureAdminPage';
+
 
 function App () {
   return (
@@ -22,7 +29,13 @@ function App () {
         <Route path='/admin/accounts' element={<AdminAccountsPage />} />
         <Route path='/products' element={<ProductList />} />
         <Route path='/edit-product' element={<EditProductPage />} />
-        <Route path="/" element={<CataloguePage />} />
+        <Route path='/' element={<CataloguePage />} />
+        <Route path='/client/login' element={<ClientLoginPage />} />
+        <Route path='/panier' element={<PanierPage />} />
+        <Route path='/interface-banque' element={<BankingInterfacePage />} />
+        <Route path='/facture' element={<FacturePage />} />
+        <Route path='/admin/orders' element={<OrdersPage />} />
+        <Route path="/admin/facture" element={<FactureAdminPage />} />
       </Routes>
     </BrowserRouter>
   )
