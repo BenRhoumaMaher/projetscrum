@@ -53,7 +53,6 @@ const CataloguePage = ({ loggedInUser }) => {
                         Catalogue
                     </a>
                     <div className="collapse navbar-collapse">
-                        {/* Search Bar */}
                         <form className="d-flex ms-auto me-auto">
                             <input
                                 type="text"
