@@ -13,6 +13,7 @@ import ClientLoginPage from './pages/ClientLoginPage'
 import PanierPage from './pages/PanierPage'
 import BankingInterfacePage from './pages/BankingInterfacePage'
 import FacturePage from './pages/facture'
+import OrdersPage from './pages/OrdersPage'
 
 function App () {
   return (
@@ -31,6 +32,7 @@ function App () {
         <Route path='/panier' element={<PanierPage />} />
         <Route path='/interface-banque' element={<BankingInterfacePage />} />
         <Route path='/facture' element={<FacturePage />} />
+        <Route path='/admin/orders' element={<OrdersPage />} />
       </Routes>
     </BrowserRouter>
   )
